@@ -39,8 +39,6 @@ const Work = () => {
                     </em>
                   </p>
                   <ul>
-                    <li>Guanajuato, Mexico</li>
-                    <li>joelchaconcastillo@gmail.com</li>
                     <li>
                       <a href="https://www.linkedin.com/in/joel-chaconcastillo-351bb4194" target="_blank" rel="noreferrer">
                         LinkedIn

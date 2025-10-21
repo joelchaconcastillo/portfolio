@@ -1,0 +1,24 @@
+.navmenu.navmenu-active ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  position: fixed;        /* <-- important: remove parent constraints */
+  top: 60px;
+  right: 1rem;
+
+  background: white;
+  padding: 1.5rem 2rem;
+  z-index: 9999;
+  width: auto;            /* let content define width */
+  min-width: 240px;       /* ensure not tiny */
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0,0,0,.15);
+}
+
+.header-social-links a svg,
+.header-social-links a i {
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1;
+}
