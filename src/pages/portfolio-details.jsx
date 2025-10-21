@@ -18,7 +18,6 @@ const PortfolioDetails = () => {
 
   return (
     <div className="portfolio-details-page">
-      <Layout>
       {/* MAIN */}
       <main className="main">
         <section id="portfolio-details" className="portfolio-details section">
@@ -76,8 +75,6 @@ const PortfolioDetails = () => {
           </div>
         </section>
       </main>
-
-      </Layout>
 
       <a href="#" id="scroll-top" className="scroll-top d-flex align-items-center justify-content-center">
         <i className="bi bi-arrow-up-short"></i>

@@ -1,15 +1,13 @@
 import React from "react";
 
-
 import Layout from "../components/Layout";
-
 // ✅ Import hooks
 import useAOS from "../hooks/useAOS";
 import useGlightbox from "../hooks/useGlightbox";
+import useSwiper from "../hooks/useSwiper";
+import useScrollTop from "../hooks/useScrollTop";
 import useMobileNav from "../hooks/useMobileNav";
 import useScrollBody from "../hooks/useScrollBody";
-import useScrollTop from "../hooks/useScrollTop";
-import useSwiper from "../hooks/useSwiper";
 
 const About = () => {
   // Initialize effects using hooks
@@ -22,59 +20,43 @@ const About = () => {
 
   return (
     <div className="about-page">
-      <Layout>
-      {/* MAIN CONTENT */}
       <main className="main">
 
         {/* About Section */}
         <section id="about" className="about section">
           <div className="container section-title" data-aos="fade-up">
-            <h2>About</h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            <h2>About Me</h2>
+            <p>Software Engineer | AI Researcher | Full-Stack Developer | ex-Oracle</p>
           </div>
 
-          <div className="container" data-aos="fade-up" data-aos-delay="100">
-            <div className="row gy-4 justify-content-center">
-              <div className="col-lg-4">
-                <img
-                  src="/assets/img/profile-img.jpg"
-                  className="img-fluid"
-                  alt="profile"
-                />
+          <div className="container content" data-aos="fade-up" data-aos-delay="100">
+            <h2>Hi, I'm Joel Chacon Castillo</h2>
+            <p className="fst-italic py-3">
+              I am a software engineer and AI researcher with experience in full-stack development, AI solutions, and scalable system architecture. I have a strong background in back-end and front-end development, AI-driven research, and algorithm design.
+            </p>
+
+            <div className="row py-3">
+              <div className="col-lg-6">
+                <ul>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Email:</strong> <span>joelchaconcastillo@gmail.com</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Location:</strong> <span>Guanajuato, Mexico</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>LinkedIn:</strong> <span><a href="https://www.linkedin.com/in/joel-chaconcastillo-351bb4194" target="_blank" rel="noopener noreferrer">linkedin.com/in/joel-chaconcastillo</a></span></li>
+                </ul>
               </div>
-              <div className="col-lg-8 content">
-                <h2>UI/UX Designer &amp; Web Developer.</h2>
-                <p className="fst-italic py-3">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-
-                <div className="row">
-                  <div className="col-lg-6">
-                    <ul>
-                      <li><i className="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>
-                      <li><i className="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
-                      <li><i className="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
-                      <li><i className="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li>
-                    </ul>
-                  </div>
-                  <div className="col-lg-6">
-                    <ul>
-                      <li><i className="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-                      <li><i className="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li>
-                      <li><i className="bi bi-chevron-right"></i> <strong>Email:</strong> <span>email@example.com</span></li>
-                      <li><i className="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                    </ul>
-                  </div>
-                </div>
-
-                <p className="py-3">
-                  Officiis eligendi itaque labore et dolorum mollitia officiis optio vero.
-                  Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore.
-                  Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia.
-                  Sed et consectetur qui quia repellendus itaque neque.
-                </p>
+              <div className="col-lg-6">
+                <ul>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Top Skills:</strong> <span>LangChain, Agentic AI, Software Architecture</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Experience:</strong> <span>Senior Software Developer at Oracle, Freelance AI/Software Projects</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Education:</strong> <span>PhD in Mathematics, Master's in Computer Science</span></li>
+                  <li><i className="bi bi-chevron-right"></i> <strong>Certifications:</strong> <span>Meta React, OCI 2024, AI Foundations</span></li>
+                </ul>
               </div>
             </div>
+
+            <p className="py-3">
+              My work spans AI research, full-stack development, and production-ready software solutions. I have built libraries, automated testing tools, and optimization toolkits, combining deep algorithmic knowledge with practical engineering skills. I am passionate about creating scalable systems and innovative AI solutions.
+            </p>
           </div>
         </section>
 
@@ -82,18 +64,18 @@ const About = () => {
         <section id="skills" className="skills section">
           <div className="container section-title" data-aos="fade-up">
             <h2>Skills</h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            <p>Technical expertise and tools I excel at</p>
           </div>
 
           <div className="container" data-aos="fade-up" data-aos-delay="100">
             <div className="row skills-content skills-animation">
               {[
-                { name: "HTML", value: 100 },
-                { name: "CSS", value: 90 },
-                { name: "JavaScript", value: 75 },
-                { name: "PHP", value: 80 },
-                { name: "WordPress/CMS", value: 90 },
-                { name: "Photoshop", value: 55 },
+                { name: "Python", value: 95 },
+                { name: "FastAPI / SQLAlchemy", value: 90 },
+                { name: "React / Preact", value: 85 },
+                { name: "AI / Machine Learning", value: 90 },
+                { name: "Docker / Kubernetes", value: 80 },
+                { name: "GraphQL / REST APIs", value: 85 },
               ].map((skill, i) => (
                 <div key={i} className="col-lg-6">
                   <div className="progress">
@@ -113,47 +95,7 @@ const About = () => {
             </div>
           </div>
         </section>
-
-        {/* Testimonials Section */}
-        <section id="testimonials" className="testimonials section">
-          <div className="container section-title" data-aos="fade-up">
-            <h2>Testimonials</h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-          </div>
-
-          <div className="container" data-aos="fade-up" data-aos-delay="100">
-            <div className="swiper">
-              <div className="swiper-wrapper">
-                {[1, 2, 3, 4, 5].map((n) => (
-                  <div key={n} className="swiper-slide">
-                    <div className="testimonial-item">
-                      <img
-                        src={`/assets/img/testimonials/testimonials-${n}.jpg`}
-                        className="testimonial-img"
-                        alt=""
-                      />
-                      <h3>Person {n}</h3>
-                      <h4>Role {n}</h4>
-                      <div className="stars">
-                        {[...Array(5)].map((_, i) => (
-                          <i key={i} className="bi bi-star-fill"></i>
-                        ))}
-                      </div>
-                      <p>
-                        <i className="bi bi-quote quote-icon-left"></i>
-                        <span>Sample testimonial text {n}.</span>
-                        <i className="bi bi-quote quote-icon-right"></i>
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="swiper-pagination"></div>
-            </div>
-          </div>
-        </section>
       </main>
-      </Layout>
     </div>
   );
 };

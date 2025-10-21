@@ -28,8 +28,6 @@ const Services = () => {
 
   return (
     <div className="services-page">
-      <Layout>
-
       <main className="main">
         {/* ---------- Services Section ---------- */}
         <section id="services" className="services section">
@@ -100,9 +98,6 @@ const Services = () => {
           </div>
         </section>
       </main>
-
-      </Layout>
-
       {/* Scroll Top */}
       <a
         href="#"

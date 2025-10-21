@@ -21,7 +21,6 @@ const Resume = () => {
 
   return (
     <div className="resume-page">
-      <Layout>
       <main className="main">
         <section id="resume" className="resume section">
           <div className="container section-title" data-aos="fade-up">
@@ -138,7 +137,6 @@ const Resume = () => {
           </div>
         </section>
       </main>
-      </Layout>
     </div>
   );
 };

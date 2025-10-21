@@ -17,7 +17,6 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      <Layout>
       {/* MAIN CONTENT */}
       <main className="main">
         <section id="contact" className="contact section">
@@ -103,9 +102,6 @@ const Contact = () => {
           </div>
         </section>
       </main>
-
-      </Layout>
-
       <a href="#" id="scroll-top" className="scroll-top d-flex align-items-center justify-content-center">
         <i className="bi bi-arrow-up-short"></i>
       </a>
