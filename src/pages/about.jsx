@@ -1,6 +1,4 @@
 import React from "react";
-
-import Layout from "../components/Layout";
 // ✅ Import hooks
 import useAOS from "../hooks/useAOS";
 import useGlightbox from "../hooks/useGlightbox";
@@ -19,83 +17,76 @@ const About = () => {
   useSwiper();
 
   return (
-    <div className="about-page">
-      <main className="main">
+    <div className="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden font-display">
+      <div className="layout-container flex h-full grow flex-col">
+        <div className="px-40 flex flex-1 justify-center py-5">
+          <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
 
-        {/* About Section */}
-        <section id="about" className="about section">
-          <div className="container section-title" data-aos="fade-up">
-            <h2>About Me</h2>
-            <p>Software Engineer | AI Researcher | Full-Stack Developer | ex-Oracle</p>
-          </div>
-
-          <div className="container content" data-aos="fade-up" data-aos-delay="100">
-            <h2>Hi, I'm Joel Chacon Castillo</h2>
-            <p className="fst-italic py-3">
-              I am a software engineer and AI researcher with experience in full-stack development, AI solutions, and scalable system architecture. I have a strong background in back-end and front-end development, AI-driven research, and algorithm design.
-            </p>
-
-            <div className="row py-3">
-              <div className="col-lg-6">
-                <ul>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Email:</strong> <span>joelchaconcastillo@gmail.com</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Location:</strong> <span>Guanajuato, Mexico</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>LinkedIn:</strong> <span><a href="https://www.linkedin.com/in/joel-chaconcastillo-351bb4194" target="_blank" rel="noopener noreferrer">linkedin.com/in/joel-chaconcastillo</a></span></li>
-                </ul>
-              </div>
-              <div className="col-lg-6">
-                <ul>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Top Skills:</strong> <span>LangChain, Agentic AI, Software Architecture</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Experience:</strong> <span>Senior Software Developer at Oracle, Freelance AI/Software Projects</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Education:</strong> <span>PhD in Mathematics, Master's in Computer Science</span></li>
-                  <li><i className="bi bi-chevron-right"></i> <strong>Certifications:</strong> <span>Meta React, OCI 2024, AI Foundations</span></li>
-                </ul>
+            <div className="flex flex-wrap justify-between gap-3 p-4 mt-8">
+              <div className="flex min-w-72 flex-col gap-3">
+                <p className="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
+                  About Me
+                </p>
+                <p className="text-gray-500 dark:text-[#92adc9] text-base font-normal leading-normal">
+                  A brief, engaging introduction to Joel Chacon Castillo, highlighting his dual expertise as a software engineer and AI researcher.
+                </p>
               </div>
             </div>
 
-            <p className="py-3">
-              My work spans AI research, full-stack development, and production-ready software solutions. I have built libraries, automated testing tools, and optimization toolkits, combining deep algorithmic knowledge with practical engineering skills. I am passionate about creating scalable systems and innovative AI solutions.
-            </p>
-          </div>
-        </section>
-
-        {/* Skills Section */}
-        <section id="skills" className="skills section">
-          <div className="container section-title" data-aos="fade-up">
-            <h2>Skills</h2>
-            <p>Technical expertise and tools I excel at</p>
-          </div>
-
-          <div className="container" data-aos="fade-up" data-aos-delay="100">
-            <div className="row skills-content skills-animation">
-              {[
-                { name: "Python", value: 95 },
-                { name: "FastAPI / SQLAlchemy", value: 90 },
-                { name: "React / Preact", value: 85 },
-                { name: "AI / Machine Learning", value: 90 },
-                { name: "Docker / Kubernetes", value: 80 },
-                { name: "GraphQL / REST APIs", value: 85 },
-              ].map((skill, i) => (
-                <div key={i} className="col-lg-6">
-                  <div className="progress">
-                    <span className="skill">
-                      <span>{skill.name}</span> <i className="val">{skill.value}%</i>
-                    </span>
-                    <div className="progress-bar-wrap">
-                      <div
-                        className="progress-bar"
-                        role="progressbar"
-                        style={{ width: `${skill.value}%` }}
-                      ></div>
-                    </div>
-                  </div>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              {/* Card 1 */}
+              <div className="flex flex-1 gap-3 rounded-lg border border-gray-200 dark:border-[#324d67] bg-white dark:bg-[#192633]/70 p-4 flex-col">
+                <div className="text-primary">
+                  <span className="material-symbols-outlined" style={{ fontSize: 24 }}>psychology</span>
                 </div>
-              ))}
+                <div className="flex flex-col gap-1">
+                  <h2 className="text-gray-900 dark:text-white text-base font-bold leading-tight">LangChain Agentic AI Development</h2>
+                  <p className="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">
+                    Experienced in building agentic AI systems with LangChain.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 2 */}
+              <div className="flex flex-1 gap-3 rounded-lg border border-gray-200 dark:border-[#324d67] bg-white dark:bg-[#192633]/70 p-4 flex-col">
+                <div className="text-primary">
+                  <span className="material-symbols-outlined" style={{ fontSize: 24 }}>hub</span>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <h2 className="text-gray-900 dark:text-white text-base font-bold leading-tight">Software Architecture</h2>
+                  <p className="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">
+                    Skilled in designing robust and scalable software systems.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3 */}
+              <div className="flex flex-1 gap-3 rounded-lg border border-gray-200 dark:border-[#324d67] bg-white dark:bg-[#192633]/70 p-4 flex-col">
+                <div className="text-primary">
+                  <span className="material-symbols-outlined" style={{ fontSize: 24 }}>lightbulb</span>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <h2 className="text-gray-900 dark:text-white text-base font-bold leading-tight">Problem Solving</h2>
+                  <p className="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">
+                    Adept at analytical and problem-solving in complex technical environments.
+                  </p>
+                </div>
+              </div>
             </div>
+
+            <h2 className="text-gray-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
+              My Expertise
+            </h2>
+            <div className="px-4">
+              <p className="text-gray-500 dark:text-[#92adc9] text-base font-normal leading-normal">
+                With a solid foundation in software engineering, I have dedicated my career to building robust and scalable systems. My passion for innovation naturally led me to the field of Artificial Intelligence, where I now focus on developing agentic AI systems using LangChain. I thrive on solving complex problems and am constantly exploring the intersection of software architecture and cutting-edge AI research to create intelligent and impactful solutions. My work is driven by a desire to push the boundaries of what's possible, from architecting intricate software to building autonomous agents that can reason and act.
+              </p>
+            </div>
+
           </div>
-        </section>
-      </main>
+        </div>
+      </div>
+
     </div>
   );
 };
