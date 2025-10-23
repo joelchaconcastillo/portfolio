@@ -3,6 +3,8 @@ import React from "react";
 import { Outlet } from "react-router-dom"; // <-- important
 import Header from "./layout/header";
 import Footer from "./layout/footer";
+import Assistant from "./layout/assistant";
+
 
 /**
  * Layout Component
@@ -14,7 +16,7 @@ import Footer from "./layout/footer";
  */
 const Layout = () => {
   return (
-    <div className="layout-wrapper d-flex flex-column min-vh-100">
+    <div className="layout-wrapper d-flex flex-column min-vh-100 relative">
       {/* Global Header */}
       <Header />
 
@@ -22,9 +24,12 @@ const Layout = () => {
       <main className="flex-grow-1">
         <Outlet /> {/* <-- renders the current child route */}
       </main>
-
+      
       {/* Global Footer */}
       <Footer />
+
+      {/* Floating Chat Assistant */}
+      <Assistant />
     </div>
   );
 };

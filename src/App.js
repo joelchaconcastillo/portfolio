@@ -1,12 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'aos/dist/aos.css';
 import 'swiper/css';
 import 'glightbox/dist/css/glightbox.css';
 
-import './App.css';
+//import './App.css';
 
 import useAOS from './hooks/useAOS';
 import useGlightbox from './hooks/useGlightbox';
@@ -24,6 +22,7 @@ import Research from './pages/research';
 import Achievements from './pages/achievements';
 import Layout from './components/Layout';
 //import PortfolioDetails from './components/pages/portfolio-details';
+import Resume from './pages/resume';
 //import Resume from './components/pages/resume';
 //import Services from './components/pages/services';
 
@@ -46,7 +45,7 @@ function App() {
         <Route element={<Layout/>}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/work" element={<Work/>}/>
+          <Route path="/resume" element={<Resume/>}/>
           <Route path="/research" element={<Research/>} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/achievements" element={<Achievements/>}/>
