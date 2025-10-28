@@ -35,14 +35,15 @@ const About = () => {
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
               {/* Card 1 */}
+
               <div className="flex flex-1 gap-3 rounded-lg border border-gray-200 dark:border-[#324d67] bg-white dark:bg-[#192633]/70 p-4 flex-col">
                 <div className="text-primary">
-                  <span className="material-symbols-outlined" style={{ fontSize: 24 }}>psychology</span>
+                  <span className="material-symbols-outlined" style={{ fontSize: 24 }}>lightbulb</span>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h2 className="text-gray-900 dark:text-white text-base font-bold leading-tight">LangChain Agentic AI Development</h2>
+                  <h2 className="text-gray-900 dark:text-white text-base font-bold leading-tight">Problem Solving</h2>
                   <p className="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">
-                    Experienced in building agentic AI systems with LangChain.
+                    Adept at analytical and problem-solving in complex technical environments.
                   </p>
                 </div>
               </div>
@@ -63,12 +64,12 @@ const About = () => {
               {/* Card 3 */}
               <div className="flex flex-1 gap-3 rounded-lg border border-gray-200 dark:border-[#324d67] bg-white dark:bg-[#192633]/70 p-4 flex-col">
                 <div className="text-primary">
-                  <span className="material-symbols-outlined" style={{ fontSize: 24 }}>lightbulb</span>
+                  <span className="material-symbols-outlined" style={{ fontSize: 24 }}>psychology</span>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h2 className="text-gray-900 dark:text-white text-base font-bold leading-tight">Problem Solving</h2>
+                  <h2 className="text-gray-900 dark:text-white text-base font-bold leading-tight">LangChain Agentic AI Development</h2>
                   <p className="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">
-                    Adept at analytical and problem-solving in complex technical environments.
+                    Experienced in building agentic AI systems with LangChain.
                   </p>
                 </div>
               </div>
@@ -77,12 +78,13 @@ const About = () => {
             <h2 className="text-gray-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
               My Expertise
             </h2>
-            <div className="px-4">
-              <p className="text-gray-500 dark:text-[#92adc9] text-base font-normal leading-normal">
-                With a solid foundation in software engineering, I have dedicated my career to building robust and scalable systems. My passion for innovation naturally led me to the field of Artificial Intelligence, where I now focus on developing agentic AI systems using LangChain. I thrive on solving complex problems and am constantly exploring the intersection of software architecture and cutting-edge AI research to create intelligent and impactful solutions. My work is driven by a desire to push the boundaries of what's possible, from architecting intricate software to building autonomous agents that can reason and act.
-              </p>
-            </div>
+              <div className="px-4">
+                <p className="text-gray-500 dark:text-[#92adc9] text-base font-normal leading-normal [text-align:justify]">
+I am a software engineer and AI researcher focused on turning complex, real-world problems into working intelligent systems. My work spans wildfire prediction, link prediction, and multi-objective optimization using mathematical heuristics, geometric deep learning, and graph-based models.
 
+I have experience across both academia and industry building full-stack, research-driven systems — from data pipelines and scalable back-ends to production-ready AI and user-facing applications. I enjoy problems where uncertainty is high, constraints are real, and correctness matters. My goal is to build systems that not only run, but reason, adapt, and improve over time.
+                </p>
+              </div>
           </div>
         </div>
       </div>

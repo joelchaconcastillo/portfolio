@@ -1,6 +1,4 @@
-import React from "react";
-
-// ✅ Custom hooks
+import React, { useRef } from "react";
 import useAOS from "../hooks/useAOS";
 import useGlightbox from "../hooks/useGlightbox";
 import useMobileNav from "../hooks/useMobileNav";
@@ -8,185 +6,197 @@ import useScrollBody from "../hooks/useScrollBody";
 import useScrollTop from "../hooks/useScrollTop";
 import useSwiper from "../hooks/useSwiper";
 
+import LeftSection from "./resume/leftSection";
+import RightSection from "./resume/rightSection";
+import ResumePDF from "./resume/resumePDF";
+
 const Resume = () => {
-  // Initialize all page effects
+
+
   useAOS({ duration: 800, once: true });
   useGlightbox();
   useMobileNav();
   useScrollBody();
   useScrollTop();
   useSwiper();
+  const experiencesData = [
+    {
+      icon: "code",
+      title: "Open Source Developer",
+      organization: "",
+      date: "2025 — Present",
+      description: [
+        { text: "Developed PyTestGenAI, an AI-powered Python package for automated test generation." },
+        { text: "Building RecomPy, a Python library for production-ready recommender systems." },
+        { text: "Creating agentic-codegen, an AI code generation library with multi-stage pipelines for analysis, testing, and automated fixes." },
+      ],
+    },
+    {
+      icon: "work",
+      title: "Senior Software Developer",
+      organization: "Oracle",
+      date: "2023 — 2025",
+      description: [
+        { text: "Back-End: FastAPI, SQLAlchemy, Pydantic for scalable APIs and services." },
+        { text: "GraphQL: Designing flexible APIs." },
+        { text: "Front-End: Preact and Oracle JET for dynamic, lightweight UIs." },
+        { text: "Cloud & DevOps: Object storage, Redis, Vault, OpenSearch, serverless ML deployments, DS operations, pre-auth access." },
+        { text: "Recommender Systems: End-to-end ML-based recommendation engines." },
+        { text: "CI/CD: Pipelines with SonarQube, Pytest, pre-commit hooks, and coding standards." },
+        { text: "SQL & Architecture: Schema design, migrations, backups, scalable system architecture." },
+        { text: "Microservices & Docker: Containerizing and deploying services." },
+        { text: "Data Science Refactoring: Optimized large-scale DS code (>50K lines)." },
+        { text: "Kubernetes: Cluster setup, monitoring, and management." },
+        { text: "Network & API: Troubleshooting and optimizing REST APIs; observability with Kiali and Jaeger." },
+        { text: "NoSQL & POCs: Proof-of-concepts with NoSQL technologies." },
+        { text: "Testing & LLM: Advanced Pytest automation, LLM-driven code reviews, prompt engineering." },
+        { text: "RAG Systems: Retrieve-Augmented Generation with LLaMA models and DB retrievals." },
+        { text: "Performance Testing: Scaling support through analysis and optimization." },
+        { text: "Hiring & Evaluation: Interviewing with focus on DSA and system design." },
+        { text: "Skills: Bash, Linux, Oracle DB, Apollo GraphQL, FastAPI, Cloud Vault, Data Modeling, Kubernetes, OCI, Docker, Architecture, Preact, Cloud Object Storage, CI/CD." },
+      ],
+    },
+    {
+      icon: "science",
+      title: "Research Associate",
+      organization: "The University of Texas at Dallas",
+      date: "2022 — 2023",
+      description: [
+        {
+          text: "Developed models for wildfire forecasting and link prediction.",
+          subText: "Conducted research on Topological Data Analysis with Graph Neural Networks (GNN). Worked mostly remotely from Mexico, then completed a short on-site stay at UT Dallas. Designed and optimized wildfire prediction models, processed datasets, and implemented enhancements to link prediction models. Collaborated with NASA equipment as part of the Advanced Information Systems Technology team.",
+          text: "Skills: PyTorch, Machine Learning, Graph Neural Networks, Data Science, Remote Sensing Data Analysis, Supercomputer Management, Project Management",
+        },
+      ],
+    },
+    {
+      icon: "emoji_objects",
+      title: "Algorithm Engineer",
+      organization: "Center for Research in Mathematics (CIANNA)",
+      date: "2022",
+      description: [
+        {
+          text: "Developed an AI system for personalized nutritional planning for children and adolescents.",
+          subText: "Leveraged a Memetic evolutionary algorithm combining global and local search strategies to generate balanced, adaptive meal plans. Considered age, health, activity level, and dietary requirements to enhance growth and well-being. The system efficiently explores and exploits the solution space to provide personalized and scientifically tailored nutrition.",
+          text: "Skills: Problem Analysis, C++ Programming, Supercomputing, Optimization, Heuristics",
+        },
+      ],
+    },
+    {
+      icon: "devices",
+      title: "Fullstack Developer",
+      organization: "Center for Research in Mathematics",
+      date: "2014 — 2015",
+      description: [
+        { text: "Developed institutional web systems, covering UI design to back-end with HTML, PHP, JavaScript, JQuery, and MySQL." },
+      ],
+    },
+    {
+      icon: "engineering",
+      title: "Software Engineer",
+      organization: "National Laboratory of Genetics for Biodiversity (LANGEBIO)",
+      date: "2013 — 2014",
+      description: [
+        {
+          text: "Internship developing a semi-automatic web application for sRNA analysis and visualization.",
+          subText: "Worked with HTML, JavaScript, PHP, JQuery, NodeJS, MySQL, Perl, R, C++. Managed ArchLinux servers.",
+        },
+      ],
+    },
+  ];
+
+// Education data
+const educationData = [
+  {
+    icon: "school",
+    title: "Deeplearning.AI — NLP Specialization",
+    date: "Aug 2024 — Sep 2024",
+    description: (
+      <>
+        <p>Completed Courses:</p>
+        <ul className="list-disc list-inside">
+          <li>Natural Language Processing with Classification and Vector Spaces</li>
+          <li>Natural Language Processing with Probabilistic Models</li>
+          <li>Natural Language Processing with Sequence Models</li>
+          <li>Natural Language Processing with Attention Models</li>
+        </ul>
+        <p>
+          Activities & groups:{" "}
+          <a
+            href="https://community.deeplearning.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline"
+          >
+            community.deeplearning.ai
+          </a>
+        </p>
+      </>
+    ),
+  },
+  {
+    icon: "school",
+    title: "Deeplearning.AI — Machine Learning Specialization",
+    date: "Sep 2022 — Nov 2022",
+    description: (
+      <ul className="list-disc list-inside">
+        <li>Supervised Machine Learning: Regression and Classification</li>
+        <li>Advanced Learning Algorithms</li>
+        <li>Unsupervised Learning, Recommenders, Reinforcement Learning</li>
+      </ul>
+    ),
+  },
+  {
+    icon: "school",
+    title: "CIMAT — PhD in Mathematics",
+    date: "Jan 2018 — Jan 2023",
+    description: <p>Focus: Mathematics and research in applied computational methods.</p>,
+  },
+  {
+    icon: "school",
+    title: "CIMAT — Master's in Computer Science",
+    date: "Aug 2015 — Dec 2017",
+    description: <p>Focus: Advanced computational mathematics and algorithms.</p>,
+  },
+  {
+    icon: "school",
+    title: "Instituto Tecnológico Superior de Irapuato — Software Engineering",
+    date: "Aug 2009 — Aug 2014",
+  },
+  {
+    icon: "school",
+    title: "Coursera — Meta React Specialization",
+    description: (
+      <p>
+        Mastered React from core concepts to advanced techniques to build modern, dynamic
+        web interfaces.
+      </p>
+    ),
+  },
+];
+
+// Skills data
+const skillsData = [
+  { category: "Programming", skills: ["Python", "C++", "TypeScript"] },
+  { category: "AI & Research", skills: ["LangChain", "Agentic AI Development", "Software Architecture"] },
+];
 
   return (
-    <main className="flex flex-col gap-8 mt-8 px-4">
+    <main className="flex flex-col gap-8 mt-8 px-4 text-gray-900 dark:text-white" >
+      {/* Header */}
       <div className="flex flex-wrap justify-between gap-4 items-center">
         <div className="flex flex-col gap-2">
-          <p className="text-white text-4xl font-black leading-tight tracking-[-0.033em]">
-            Resume
-          </p>
-          <p className="text-[#92adc9] text-base font-normal leading-normal">
-            My professional experience and qualifications.
+          <p className="text-4xl font-black leading-tight tracking-[-0.033em]">Resume</p>
+          <p className="text-gray-600 dark:text-[#92adc9] text-base leading-normal">
+            Professional experience, research, and skills.
           </p>
         </div>
-        <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#233648] text-white text-sm font-bold leading-normal tracking-[0.015em] gap-2">
-          <span className="material-symbols-outlined text-base">download</span>
-          <span className="truncate">Download PDF</span>
-        </button>
+        <ResumePDF experiencesData={experiencesData} educationData={educationData} skillsData={skillsData}/>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-12">
-        {/* Experience Section */}
-        <div className="w-full lg:w-2/3">
-          <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-            Experience
-          </h2>
-          <div className="grid grid-cols-[40px_1fr] gap-x-2 px-4">
-            {/* Freelance Open Source Software Developer */}
-            <div className="flex flex-col items-center gap-1 pt-3">
-              <div className="text-white material-symbols-outlined text-2xl">code</div>
-              <div className="w-[1.5px] bg-[#324d67] h-full"></div>
-            </div>
-            <div className="flex flex-1 flex-col py-3">
-              <p className="text-white text-base font-medium leading-normal">
-                Freelance Open Source Software Developer
-              </p>
-              <p className="text-[#92adc9] text-sm font-normal leading-normal">Present</p>
-              <ul className="list-disc list-inside text-[#92adc9] text-sm mt-2 space-y-1">
-                <li>Contributed to various open-source projects, focusing on machine learning and data visualization libraries.</li>
-                <li>Collaborated with a global community of developers to improve software quality and add new features.</li>
-              </ul>
-            </div>
-
-            {/* Independent Researcher */}
-            <div className="flex flex-col items-center gap-1">
-              <div className="w-[1.5px] bg-[#324d67] h-2"></div>
-              <div className="text-white material-symbols-outlined text-2xl">lightbulb</div>
-              <div className="w-[1.5px] bg-[#324d67] h-full"></div>
-            </div>
-            <div className="flex flex-1 flex-col py-3">
-              <p className="text-white text-base font-medium leading-normal">Independent Researcher</p>
-              <p className="text-[#92adc9] text-sm font-normal leading-normal">2022 - Present</p>
-              <ul className="list-disc list-inside text-[#92adc9] text-sm mt-2 space-y-1">
-                <li>Published papers on novel neural network architectures for natural language understanding.</li>
-                <li>Explored applications of reinforcement learning in complex, dynamic environments.</li>
-              </ul>
-            </div>
-
-            {/* Senior Software Developer, Oracle */}
-            <div className="flex flex-col items-center gap-1">
-              <div className="w-[1.5px] bg-[#324d67] h-2"></div>
-              <div className="text-white material-symbols-outlined text-2xl">business_center</div>
-              <div className="w-[1.5px] bg-[#324d67] h-full"></div>
-            </div>
-            <div className="flex flex-1 flex-col py-3">
-              <p className="text-white text-base font-medium leading-normal">Senior Software Developer, Oracle</p>
-              <p className="text-[#92adc9] text-sm font-normal leading-normal">2018 - 2022</p>
-              <ul className="list-disc list-inside text-[#92adc9] text-sm mt-2 space-y-1">
-                <li>Led the development of a cloud-native data processing pipeline, reducing processing time by 40%.</li>
-                <li>Designed and implemented scalable microservices using Java and Spring Boot.</li>
-              </ul>
-            </div>
-
-            {/* Freelance Project Research Consultant */}
-            <div className="flex flex-col items-center gap-1">
-              <div className="w-[1.5px] bg-[#324d67] h-2"></div>
-              <div className="text-white material-symbols-outlined text-2xl">groups</div>
-              <div className="w-[1.5px] bg-[#324d67] h-full"></div>
-            </div>
-            <div className="flex flex-1 flex-col py-3">
-              <p className="text-white text-base font-medium leading-normal">Freelance Project Research Consultant</p>
-              <p className="text-[#92adc9] text-sm font-normal leading-normal">2016 - 2018</p>
-              <ul className="list-disc list-inside text-[#92adc9] text-sm mt-2 space-y-1">
-                <li>Advised startups on integrating AI capabilities into their products.</li>
-                <li>Conducted feasibility studies for new technology adoption.</li>
-              </ul>
-            </div>
-
-            {/* Software Engineer, CIMAT */}
-            <div className="flex flex-col items-center gap-1 pb-3">
-              <div className="w-[1.5px] bg-[#324d67] h-2"></div>
-              <div className="text-white material-symbols-outlined text-2xl">apartment</div>
-            </div>
-            <div className="flex flex-1 flex-col py-3">
-              <p className="text-white text-base font-medium leading-normal">Software Engineer, CIMAT</p>
-              <p className="text-[#92adc9] text-sm font-normal leading-normal">2014 - 2016</p>
-              <ul className="list-disc list-inside text-[#92adc9] text-sm mt-2 space-y-1">
-                <li>Developed scientific computing applications in C++ and Python.</li>
-                <li>Contributed to research projects in computational geometry.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Education & Skills Section */}
-        <div className="w-full lg:w-1/3">
-          {/* Education */}
-          <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Education</h2>
-          <div className="grid grid-cols-[40px_1fr] gap-x-2 px-4">
-            <div className="flex flex-col items-center gap-1 pt-3">
-              <div className="text-white material-symbols-outlined text-2xl">school</div>
-              <div className="w-[1.5px] bg-[#324d67] h-full"></div>
-            </div>
-            <div className="flex flex-1 flex-col py-3">
-              <p className="text-white text-base font-medium leading-normal">Deeplearning.AI</p>
-              <p className="text-[#92adc9] text-sm font-normal leading-normal">Deep Learning Specialization</p>
-              <p className="text-[#92adc9] text-xs font-normal leading-normal">2021</p>
-            </div>
-
-            <div className="flex flex-col items-center gap-1">
-              <div className="w-[1.5px] bg-[#324d67] h-2"></div>
-              <div className="text-white material-symbols-outlined text-2xl">school</div>
-              <div className="w-[1.5px] bg-[#324d67] h-full"></div>
-            </div>
-            <div className="flex flex-1 flex-col py-3">
-              <p className="text-white text-base font-medium leading-normal">Center for Research in Mathematics (CIMAT)</p>
-              <p className="text-[#92adc9] text-sm font-normal leading-normal">M.S. in Computer Science</p>
-              <p className="text-[#92adc9] text-xs font-normal leading-normal">2012 - 2014</p>
-            </div>
-
-            <div className="flex flex-col items-center gap-1">
-              <div className="w-[1.5px] bg-[#324d67] h-2"></div>
-              <div className="text-white material-symbols-outlined text-2xl">school</div>
-            </div>
-            <div className="flex flex-1 flex-col py-3">
-              <p className="text-white text-base font-medium leading-normal">Instituto Tecnológico Superior de Irapuato</p>
-              <p className="text-[#92adc9] text-sm font-normal leading-normal">B.S. in Computer Systems Engineering</p>
-              <p className="text-[#92adc9] text-xs font-normal leading-normal">2007 - 2012</p>
-            </div>
-          </div>
-
-          {/* Skills */}
-          <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-10">Skills</h2>
-          <div className="px-4 space-y-4">
-            <div>
-              <p className="text-white text-base font-medium leading-normal mb-2">Programming</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-[#233648] text-[#92adc9] text-xs font-semibold px-2.5 py-1 rounded-full">Python</span>
-                <span className="bg-[#233648] text-[#92adc9] text-xs font-semibold px-2.5 py-1 rounded-full">Java</span>
-                <span className="bg-[#233648] text-[#92adc9] text-xs font-semibold px-2.5 py-1 rounded-full">C++</span>
-                <span className="bg-[#233648] text-[#92adc9] text-xs font-semibold px-2.5 py-1 rounded-full">JavaScript</span>
-              </div>
-            </div>
-            <div>
-              <p className="text-white text-base font-medium leading-normal mb-2">AI/ML</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-[#233648] text-[#92adc9] text-xs font-semibold px-2.5 py-1 rounded-full">TensorFlow</span>
-                <span className="bg-[#233648] text-[#92adc9] text-xs font-semibold px-2.5 py-1 rounded-full">PyTorch</span>
-                <span className="bg-[#233648] text-[#92adc9] text-xs font-semibold px-2.5 py-1 rounded-full">Scikit-learn</span>
-                <span className="bg-[#233648] text-[#92adc9] text-xs font-semibold px-2.5 py-1 rounded-full">Keras</span>
-              </div>
-            </div>
-            <div>
-              <p className="text-white text-base font-medium leading-normal mb-2">Web/Cloud</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-[#233648] text-[#92adc9] text-xs font-semibold px-2.5 py-1 rounded-full">Docker</span>
-                <span className="bg-[#233648] text-[#92adc9] text-xs font-semibold px-2.5 py-1 rounded-full">AWS</span>
-                <span className="bg-[#233648] text-[#92adc9] text-xs font-semibold px-2.5 py-1 rounded-full">Google Cloud</span>
-                <span className="bg-[#233648] text-[#92adc9] text-xs font-semibold px-2.5 py-1 rounded-full">Kubernetes</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <LeftSection experiencesData={experiencesData}/>
+        <RightSection educationData={educationData} skillsData={skillsData}/>
       </div>
     </main>
   );
