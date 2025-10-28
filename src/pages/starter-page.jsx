@@ -33,13 +33,14 @@ const StarterPage = () => {
               I build innovative and efficient solutions at the intersection of artificial intelligence and software development. My passion lies in creating intelligent systems that solve real-world problems.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4">
-              <button className="w-full sm:w-auto flex min-w-[160px] max-w-[480px] items-center justify-center rounded-lg h-12 px-5 
+              {/*<button className="w-full sm:w-auto flex min-w-[160px] max-w-[480px] items-center justify-center rounded-lg h-12 px-5 
                 bg-blue-600 dark:bg-blue-500 text-white dark:text-white 
                 text-base font-bold hover:bg-blue-700 dark:hover:bg-blue-400
                 transition-colors duration-200"
               >
                 Explore My Work
-              </button>
+              </button>*/
+              }
             </div>
           </div>
         </div>
