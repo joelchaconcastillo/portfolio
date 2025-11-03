@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-const API_URL = "https://fastapi-example-88qq.onrender.com/ask"; 
+// Use relative path for proxy to work (set "proxy": "http://localhost:8000" in package.json)
+const API_URL = "/ask";
 
 const Assistant = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +33,6 @@ const Assistant = () => {
     const typingInterval = setInterval(() => {
       setChatHistory((prev) => {
         const lastMessage = prev[prev.length - 1];
-        // progressively reveal the text
         const newHistory = [...prev];
         newHistory[newHistory.length - 1] = {
           ...lastMessage,
@@ -140,7 +140,6 @@ const Assistant = () => {
 
           {/* Chat Body */}
           <main className="flex-1 overflow-y-auto p-2 sm:p-4 bg-background-light flex flex-col">
-            {/* Status */}
             {(loading || typing) && (
               <div className="mb-2 text-xs text-gray-500 animate-pulse">
                 💭 {typing ? "Assistant is answering..." : "Thinking..."}
