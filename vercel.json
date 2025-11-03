@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/ask",
+      "destination": "https://fastapi-example-88qq.onrender.com/ask"
+    }
+  ]
+}
+
