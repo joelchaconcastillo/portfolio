@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const API_URL = "https://rag-portfolio.onrender.com/ask"; 
+const API_URL = "https://fastapi-example-88qq.onrender.com/ask"; 
 
 const Assistant = () => {
   const [isOpen, setIsOpen] = useState(false);
