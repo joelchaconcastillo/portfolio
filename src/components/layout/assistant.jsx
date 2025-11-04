@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 const API_URL = "/ask";
 
 const Assistant = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [typing, setTyping] = useState(false);
