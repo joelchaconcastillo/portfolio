@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/ask", "destination": "https://rag-portfolio-498n.onrender.com/ask" },
-    { "source": "/", "destination": "https://rag-portfolio-498n.onrender.com/" }
+    { "source": "/ask", "destination": "https://joelchacon-rag-portfolio.hf.space/ask" },
+    { "source": "/", "destination": "https://joelchacon-rag-portfolio.hf.space/" }
   ]
 }
