@@ -1,9 +1,6 @@
 {
   "rewrites": [
-    {
-      "source": "/ask",
-      "destination": "https://fastapi-example-88qq.onrender.com/ask"
-    }
+    { "source": "/ask", "destination": "https://fastapi-example-88qq.onrender.com/ask" },
+    { "source": "/", "destination": "https://fastapi-example-88qq.onrender.com/" }
   ]
 }
-
