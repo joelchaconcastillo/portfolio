@@ -8,58 +8,91 @@ const ResumePDF = ({ experiencesData, educationData, skillsData }) => {
     const pageHeight = pdf.internal.pageSize.getHeight();
     const margin = 15;
     let y = 20;
+    const lineSpacing = 6; // consistent vertical spacing
+
+    const checkPageEnd = (linesCount = 1) => {
+      const estimatedHeight = linesCount * lineSpacing;
+      if (y + estimatedHeight > pageHeight - 15) {
+        pdf.addPage();
+        y = 20;
+      }
+    };
 
     const addText = (text, options = {}) => {
-      const { fontSize = 12, fontStyle = "normal", indent = 0 } = options;
+      if (!text) return;
+      const { fontSize = 11, fontStyle = "normal", indent = 0 } = options;
       pdf.setFontSize(fontSize);
-      pdf.setFont(undefined, fontStyle);
-      const lines = pdf.splitTextToSize(text, pageWidth - 2 * margin - indent);
+      pdf.setFont("helvetica", fontStyle);
+      const maxWidth = pageWidth - 2 * margin - indent;
+      const lines = pdf.splitTextToSize(text, maxWidth);
+      checkPageEnd(lines.length);
       lines.forEach((line) => {
-        if (y > pageHeight - 20) {
-          pdf.addPage();
-          y = 20;
-        }
         pdf.text(line, margin + indent, y);
-        y += fontSize * 0.5 + 3; // dynamic spacing
+        y += lineSpacing;
       });
+      y += 1; // small space after paragraph
     };
 
     const addSectionHeader = (title) => {
-      pdf.setDrawColor(50, 115, 220);
-      pdf.setFillColor(50, 115, 220);
-      pdf.rect(margin, y - 5, pageWidth - 2 * margin, 8, "F"); // colored header bar
+      checkPageEnd();
+      pdf.setDrawColor(30, 70, 160);
+      pdf.setFillColor(30, 70, 160);
+      pdf.rect(margin, y - 4, pageWidth - 2 * margin, 8, "F");
       pdf.setTextColor(255, 255, 255);
-      addText(title, { fontSize: 14, fontStyle: "bold" });
+      pdf.setFont("helvetica", "bold");
+      pdf.setFontSize(13);
+      pdf.text(title.toUpperCase(), margin + 2, y + 2);
       pdf.setTextColor(0, 0, 0);
-      y += 6;
+      y += 10;
     };
 
-    // Header
-    addText("My Resume", { fontSize: 24, fontStyle: "bold" });
-    y += 10;
+    const addLink = (label, url) => {
+      if (!label || !url) return;
+      pdf.setTextColor(0, 0, 255);
+      pdf.textWithLink(`• ${label}`, margin + 5, y, { url });
+      pdf.setTextColor(0, 0, 0);
+      y += lineSpacing;
+    };
 
-    // Experience Section
+    // === HEADER ===
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(22);
+    pdf.text("Joel Chacón Castillo — Résumé", margin, y);
+    y += 12;
+
+    // === EXPERIENCE ===
     addSectionHeader("Experience");
     experiencesData.forEach((exp) => {
-      addText(`${exp.title}${exp.organization ? ` — ${exp.organization}` : ""}`, { fontStyle: "bold", fontSize: 12 });
+      const header = `${exp.title}${exp.organization ? ` — ${exp.organization}` : ""}`;
+      addText(header, { fontStyle: "bold", fontSize: 12 });
       if (exp.date) addText(exp.date, { fontSize: 10, fontStyle: "italic" });
-      exp.description.forEach((desc) => {
-        const text = desc.text || desc;
-        addText(desc.subText ? `• ${text} — ${desc.subText}` : `• ${text}`, { indent: 5 });
-      });
-      y += 4;
+
+      if (Array.isArray(exp.description)) {
+        exp.description.forEach((desc) => {
+          if (typeof desc === "string" && desc.trim()) {
+            addText(`• ${desc}`, { indent: 5 });
+          } else if (desc?.text) {
+            addText(`• ${desc.text}`, { indent: 5 });
+          } else if (desc?.link?.label && desc?.link?.url) {
+            addLink(desc.link.label, desc.link.url);
+          }
+        });
+      }
+      y += 2;
     });
 
-    // Education Section
+    // === EDUCATION ===
     addSectionHeader("Education");
     educationData.forEach((edu) => {
       addText(edu.title, { fontStyle: "bold", fontSize: 12 });
       if (edu.date) addText(edu.date, { fontSize: 10, fontStyle: "italic" });
-      if (edu.description && typeof edu.description === "string") addText(`• ${edu.description}`, { indent: 5 });
-      y += 3;
+      if (edu.description && typeof edu.description === "string") {
+        addText(`• ${edu.description}`, { indent: 5 });
+      }
+      y += 2;
     });
 
-    // Skills Section
+    // === SKILLS ===
     addSectionHeader("Skills");
     skillsData.forEach((skill) => {
       addText(`• ${skill.category}: ${skill.skills.join(", ")}`, { indent: 5 });

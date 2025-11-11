@@ -25,7 +25,7 @@ const Footer = () => {
           <i className="bi bi-github"></i>
         </a>
         <a
-          href="https://scholar.google.com/"
+          href="https://scholar.google.com/citations?user=zZpJfLsAAAAJ&hl=en"
           target="_blank"
           rel="noreferrer"
           className="text-[#92adc9] hover:text-white"
