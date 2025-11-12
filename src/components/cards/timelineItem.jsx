@@ -36,9 +36,22 @@ const TimelineItem = ({ icon, title, organization, date, description }) => {
                 <ul className="list-disc list-outside pl-5 space-y-2">
                   {description.map((item, idx) => (
                     <li key={idx} className="leading-relaxed">
-                      <span>{item.text}</span>
+                      {/* Text if exists */}
+                      {item.text && <span>{item.text}</span>}
 
-                      {/* Inline links */}
+                      {/* ✅ Handle single link */}
+                      {item.link && (
+                        <a
+                          href={item.link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-2 text-blue-500 underline hover:text-blue-600"
+                        >
+                          [{item.link.label || "Link"}]
+                        </a>
+                      )}
+
+                      {/* ✅ Handle multiple links */}
                       {item.links && item.links.length > 0 && (
                         <span className="ml-2 inline-flex flex-wrap gap-2">
                           {item.links.map((link, i) => (
