@@ -1,8 +1,9 @@
 import React from "react";
+import Card from "../common/Card";
 
 const SkillItem = ({ category, skills }) => {
   return (
-    <div>
+    <Card className="p-4" data-aos="fade-up">
       <p className="font-medium mb-2">{category}</p>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill, index) => (
@@ -14,7 +15,7 @@ const SkillItem = ({ category, skills }) => {
           </span>
         ))}
       </div>
-    </div>
+    </Card>
   );
 };
 

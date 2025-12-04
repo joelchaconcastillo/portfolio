@@ -49,27 +49,9 @@ const Portfolio = () => {
               </ul>
 
               <div className="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-                <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                  <img
-                    src="/assets/img/masonry-portfolio/masonry-portfolio-1.jpg"
-                    className="img-fluid"
-                    alt=""
-                  />
-                  <div className="portfolio-info">
-                    <h4>App 1</h4>
-                    <p>Lorem ipsum, dolor sit</p>
-                    <a
-                      href="/assets/img/masonry-portfolio/masonry-portfolio-1.jpg"
-                      title="App 1"
-                      data-gallery="portfolio-gallery-app"
-                      className="glightbox preview-link"
-                    >
-                      <i className="bi bi-zoom-in"></i>
-                    </a>
-                    <a href="/portfolio-details" title="More Details" className="details-link">
-                      <i className="bi bi-link-45deg"></i>
-                    </a>
-                  </div>
+                {/* Project cards removed from this page. Projects are shown on the Home page Projects section. */}
+                <div className="col-12">
+                  <p className="text-slate-700 dark:text-[#92adc9]">Project thumbnails have been removed from this page. See the Projects section on the home page for featured work.</p>
                 </div>
               </div>
             </div>
