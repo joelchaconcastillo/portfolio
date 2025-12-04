@@ -58,3 +58,8 @@ section[style*="z-index: 2147483647"] {
   outline: none !important;
   caret-color: transparent !important;
 }
+
+/* Smooth scroll for in-page anchors */
+html {
+  scroll-behavior: smooth;
+}

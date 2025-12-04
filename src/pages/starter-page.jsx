@@ -45,6 +45,7 @@ const StarterPage = () => {
           </div>
         </div>
       </main>
+  {/* Projects moved to their own page */}
     </div>
   );
 };

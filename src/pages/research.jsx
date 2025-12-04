@@ -135,13 +135,15 @@ const Research = () => {
       </p>
 
       {/* Research List */}
-      <div className="flex flex-col gap-4 p-4">
-        {researchPapers.map((paper, index) => (
-          <details
-            key={index}
-            className="border border-gray-200 dark:border-[#324d67] rounded-2xl shadow-sm hover:shadow-md transition-all bg-white/70 dark:bg-[#0f172a]/70 backdrop-blur-sm p-4 group"
-            open={paper.open}
-          >
+      <div className="px-4 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+        <div className="flex flex-col max-w-[960px] flex-1">
+          <div className="flex flex-col gap-4 p-4">
+            {researchPapers.map((paper, index) => (
+              <details
+                key={index}
+                className="border border-gray-200 dark:border-[#324d67] rounded-2xl shadow-sm hover:shadow-md transition-all bg-white/70 dark:bg-[#0f172a]/70 backdrop-blur-sm p-4 group"
+                open={paper.open}
+              >
             <summary className="flex cursor-pointer items-center justify-between gap-6 py-2 select-none">
               <div>
                 <p className="text-lg font-semibold text-slate-900 dark:text-white leading-snug">
@@ -176,7 +178,9 @@ const Research = () => {
               </a>
             </div>
           </details>
-        ))}
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

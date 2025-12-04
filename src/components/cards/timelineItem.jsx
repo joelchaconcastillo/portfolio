@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Card from "../common/Card";
 
 const TimelineItem = ({ icon, title, organization, date, description }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -13,22 +14,17 @@ const TimelineItem = ({ icon, title, organization, date, description }) => {
         <div className="w-[1.5px] bg-gray-300 dark:bg-[#324d67] h-full"></div>
       </div>
 
-      {/* Content */}
-      <div className="flex flex-col py-3 pl-4">
+      {/* Content wrapped in a Card for consistent visuals */}
+      <Card className="p-4" data-aos="fade-up">
         <p className="font-medium">
           {title} {organization && `- ${organization}`}
         </p>
-        {date && (
-          <p className="text-gray-600 dark:text-[#92adc9] text-sm">{date}</p>
-        )}
+        {date && <p className="text-gray-600 dark:text-[#92adc9] text-sm mt-1">{date}</p>}
 
         {description && description.length > 0 && (
-          <div className="mt-2 text-gray-600 dark:text-[#92adc9] text-sm">
+          <div className="mt-3 text-gray-600 dark:text-[#92adc9] text-sm">
             {!isExpanded ? (
-              <button
-                onClick={toggleExpand}
-                className="text-blue-500 underline text-sm self-start"
-              >
+              <button onClick={toggleExpand} className="text-blue-500 underline text-sm">
                 More info
               </button>
             ) : (
@@ -36,10 +32,8 @@ const TimelineItem = ({ icon, title, organization, date, description }) => {
                 <ul className="list-disc list-outside pl-5 space-y-2">
                   {description.map((item, idx) => (
                     <li key={idx} className="leading-relaxed">
-                      {/* Text if exists */}
                       {item.text && <span>{item.text}</span>}
 
-                      {/* ✅ Handle single link */}
                       {item.link && (
                         <a
                           href={item.link.url}
@@ -51,7 +45,6 @@ const TimelineItem = ({ icon, title, organization, date, description }) => {
                         </a>
                       )}
 
-                      {/* ✅ Handle multiple links */}
                       {item.links && item.links.length > 0 && (
                         <span className="ml-2 inline-flex flex-wrap gap-2">
                           {item.links.map((link, i) => (
@@ -71,17 +64,14 @@ const TimelineItem = ({ icon, title, organization, date, description }) => {
                   ))}
                 </ul>
 
-                <button
-                  onClick={toggleExpand}
-                  className="mt-2 text-blue-500 underline text-sm self-start"
-                >
+                <button onClick={toggleExpand} className="mt-2 text-blue-500 underline text-sm">
                   Show less
                 </button>
               </>
             )}
           </div>
         )}
-      </div>
+      </Card>
     </>
   );
 };

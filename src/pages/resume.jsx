@@ -20,11 +20,30 @@ const Resume = () => {
   useScrollTop();
   useSwiper();
   const experiencesData = [
+        {
+      icon: "psychology",
+      title: "Gen AI Engineer",
+      organization: "Orion Innovation",
+      date: "2025 — Present",
+      description: [
+        { text: "Develop and implement machine learning models to address specific business challenges faced by the company." },
+        { text: "Collaborate with cross-functional teams to integrate AI solutions into existing systems and workflows." },
+        { text: "Conduct research to stay updated on the latest advancements in artificial intelligence and machine learning technologies." },
+        { text: "Design and optimize algorithms for data processing and analysis to improve the efficiency of AI applications." },
+        { text: "Evaluate the performance of AI models and refine them to enhance accuracy and reliability." },
+        { text: "Create and maintain documentation for AI models, algorithms, and processes to ensure clarity and reproducibility." },
+        { text: "Participate in code reviews and provide feedback to ensure high-quality code standards are maintained." },
+        { text: "Analyze large datasets to extract meaningful insights and support data-driven decision-making within the company." },
+        { text: "Develop prototypes and proof-of-concept projects to demonstrate the potential of AI technologies in various applications." },
+        { text: "Ensure compliance with data privacy and security regulations in all AI-related activities and projects." },
+        { text: "Specialties: RAG, LLM integration, prompt engineering, model evaluation." },
+      ],
+    },
     {
       icon: "code",
       title: "Open Source Developer",
       organization: "",
-      date: "2025 — Present",
+      date: "2025",
       description: [
         {
           text: "Developed PyTestGenAI, an AI-powered Python package for automated test generation using large language models.",
@@ -341,22 +360,52 @@ const skillsData = [
   return (
     <main className="flex flex-col gap-8 mt-8 px-4 text-gray-900 dark:text-white" >
       {/* Header */}
-      <div className="flex flex-wrap justify-between gap-4 items-center">
-        <div className="flex flex-col gap-2">
-          <p className="text-4xl font-black leading-tight tracking-[-0.033em]">Resume</p>
-          <p className="text-gray-600 dark:text-[#92adc9] text-base leading-normal">
-            Professional experience, research, and skills.
-          </p>
+        <div className="flex flex-wrap justify-between gap-4 items-center">
+          <div className="flex flex-col gap-2">
+            <p className="text-4xl font-black leading-tight tracking-[-0.033em]">Resume</p>
+            <p className="text-gray-600 dark:text-[#92adc9] text-base leading-normal">
+          Professional experience, research, and skills.
+            </p>
+          </div>
+          
+          <div className="flex gap-4">
+            <a
+          href={new URL(
+            `${process.env.PUBLIC_URL || ""}/static/Joel_Chacon_Castillo_Resume_Software_Engineering.pdf`,
+            window.location.origin
+          ).href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 bg-blue-700 hover:bg-blue-800 dark:bg-[#233648] text-white rounded-lg h-10 px-4 font-bold transition-colors"
+          aria-label="Open Software Engineering Resume in browser"
+          title="Open Software Engineering Resume in browser"
+            >
+          <span className="material-symbols-outlined text-base">launch</span>
+          <span>Open Software Engineering Resume</span>
+            </a>
+            <a
+          href={new URL(
+            `${process.env.PUBLIC_URL || ""}/static/Joel_Chacon_Castillo_Resume_GenAI_Engineer.pdf`,
+            window.location.origin
+          ).href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 bg-green-700 hover:bg-green-800 dark:bg-[#234823] text-white rounded-lg h-10 px-4 font-bold transition-colors"
+          aria-label="Open Gen AI Engineer Resume in browser"
+          title="Open Gen AI Engineer Resume in browser"
+            >
+          <span className="material-symbols-outlined text-base">launch</span>
+          <span>Open Gen AI Engineer Resume</span>
+            </a>
+          </div>
         </div>
-        <ResumePDF experiencesData={experiencesData} educationData={educationData} skillsData={skillsData}/>
-      </div>
 
-      <div className="flex flex-col lg:flex-row gap-12">
-        <LeftSection experiencesData={experiencesData}/>
-        <RightSection educationData={educationData} skillsData={skillsData}/>
-      </div>
-    </main>
-  );
+        <div className="flex flex-col lg:flex-row gap-12">
+          <LeftSection experiencesData={experiencesData}/>
+          <RightSection educationData={educationData} skillsData={skillsData}/>
+        </div>
+          </main>
+        );
 };
 
 export default Resume;

@@ -21,6 +21,7 @@ import Research from "./pages/research";
 import Achievements from "./pages/achievements";
 import Layout from "./components/Layout";
 import Resume from "./pages/resume";
+import ProjectsPage from "./pages/projects";
 
 function App() {
   // Initialize all global JS plugins via hooks
@@ -52,6 +53,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/research" element={<Research />} />
+          <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/achievements" element={<Achievements />} />
         </Route>
